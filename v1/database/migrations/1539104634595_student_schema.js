@@ -5,16 +5,14 @@ const Schema = use('Schema')
 class StudentSchema extends Schema {
   up () {
     this.create('students', (table) => {
-      table.increments()
+      table.increments() //auto increment
       table.string('name', 255)
       table.string('skypeid', 255)
       table.string('password', 255)
-      table.string('birthdate', 255)
+      table.date('birthdate')
       table.string('picture', 255)
-      table.string('score', 255)
-      table.string('created', 255)
-      table.string('modified', 255)
-      table.timestamps()
+      table.double('score')
+      table.timestamps() //created_at e updated_at
     })
   }
 
