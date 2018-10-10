@@ -6,6 +6,7 @@ class ScheduleSchema extends Schema {
   up () {
     this.create('schedules', (table) => {
       table.increments()
+      
       table.timestamps()
     })
   }
