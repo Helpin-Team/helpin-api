@@ -13,7 +13,8 @@ class StudentController {
         "whatsappid", 
         "password", 
         "birthdate", 
-        "picture" 
+        "picture",
+        "status" 
       ])
 
     return await Student.create(data);
@@ -47,23 +48,14 @@ class StudentController {
         "whatsappid", 
         "password", 
         "birthdate", 
-        "picture" 
+        "picture",
+        "status" 
       ])
     
     return await Student
       .query()
       .where('id', id)
       .update(data)
-  }
-
-  async destroy ({ params, request, response }) {
-    const { id } = params
-
-    const student = await Student
-        .query()
-        .where('id', id)
-        .delete()
-
   }
 }
 

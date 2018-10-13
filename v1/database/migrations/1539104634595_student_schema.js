@@ -14,6 +14,7 @@ class StudentSchema extends Schema {
       table.string('password', 255).notNullable()
       table.date('birthdate')
       table.string('picture', 255)
+      table.boolean('status').notNullable()
       table.double('score')
       table.timestamps() //created_at e updated_at
     })
