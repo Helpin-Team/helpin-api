@@ -1,20 +1,26 @@
 'use strict'
-
+const Tutor = use('App/Models/Tutor')
 class TutorController {
 
-  async index ({ request, response, view }) {
+  async index () {
+    return await Tutor
+      .query()
+      .with('student')
+      .fetch()
+
+
   }
 
-  async create ({ request, response, view }) {
-  }
-
-  async store ({ request, response }) {
+  async store ({ request }) {
+    
+    const tutor = request
+      .only([
+        "student_id"
+      ])
+    return await Tutor.create(tutor);
   }
 
   async show ({ params, request, response, view }) {
-  }
-
-  async edit ({ params, request, response, view }) {
   }
 
   async update ({ params, request, response }) {

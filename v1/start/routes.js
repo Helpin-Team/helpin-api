@@ -17,7 +17,7 @@
 const Route = use('Route')
 
 Route.resource('students', 'StudentController').apiOnly()
-Route.resource('tutors', 'TutorsController').apiOnly()
+Route.resource('tutors', 'TutorController').apiOnly()
 
 
 //index - listagem
