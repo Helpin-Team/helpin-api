@@ -9,8 +9,8 @@ class KnowledgeController {
       .query()
       .setVisible([
         'id',
+        'student_id',
         'name',
-        'about'
       ])
       .fetch()
   }
@@ -22,17 +22,33 @@ class KnowledgeController {
         'name',
         'about'
       ])
+      data['status'] = 'true';
 
     return await Knowledge.create(data)
   }
 
-  async show ({ params, request, response, view }) {
+  async show ({ params }) {
+    const { id } = params
+    return await Knowledge
+      .find( id )
   }
 
-  async update ({ params, request, response }) {
-  }
+  async update ({ params, request }) {
+    const { id } = params
+    
+    const data = request
+    .only([
+      'student_id',
+      'name',
+      'about',
+      'status'
+    ])
 
-  async destroy ({ params, request, response }) {
+    return await Knowledge
+      .query()
+      .where('id', id)
+      .update(data)
+
   }
 }
 
