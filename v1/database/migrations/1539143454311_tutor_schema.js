@@ -6,7 +6,9 @@ class TutorSchema extends Schema {
   up () {
     this.create('tutors', (table) => {
       table.increments()
-      table.integer('student_id').unsigned().references('id').inTable('students') 
+      table.boolean('status').notNullable()
+      table.integer('student_id').unsigned()
+      table.foreign('student_id').references('id').inTable('students') 
       table.timestamps()
     })
   }
