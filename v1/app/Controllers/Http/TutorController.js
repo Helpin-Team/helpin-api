@@ -7,26 +7,38 @@ class TutorController {
       .query()
       .with('student')
       .fetch()
-
-
   }
 
   async store ({ request }) {
-    
     const tutor = request
       .only([
-        "student_id"
+        "student_id",
+        "status"
       ])
     return await Tutor.create(tutor);
   }
 
-  async show ({ params, request, response, view }) {
+  async show ({ params }) {
+    const {id} = params
+    return await Tutor
+      .query()
+      .with('student')
+      .where('id', id)
+      .fetch()
   }
 
-  async update ({ params, request, response }) {
-  }
+  async update ({ params, request }) {
+    const {id} = params
 
-  async destroy ({ params, request, response }) {
+    const data = request
+      .only([
+        "status"
+      ])
+
+    return await Tutor
+      .query()
+      .where('id', id)
+      .update(data)
   }
 }
 

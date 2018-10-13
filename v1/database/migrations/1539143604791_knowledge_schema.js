@@ -8,7 +8,8 @@ class KnowledgeSchema extends Schema {
       table.increments()
       table.string('name')
       table.string('about')
-      table.integer('student_id').unsigned().references('id').inTable('students')
+      table.integer('student_id').unsigned()
+      table.foreign('student_id').references('id').inTable('students')
       table.timestamps()
     })
   }
