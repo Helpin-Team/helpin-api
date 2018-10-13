@@ -5,7 +5,8 @@ const Schema = use('Schema')
 class TutorHasScheduleSchema extends Schema {
   up () {
     this.create('tutor_has_schedules', (table) => {
-      table.increments()
+      table.integer('tutor_id').unsigned().references('id').inTable('tutors')
+      table.integer('schedule_id').unsigned().references('id').inTable('schedules')
       table.timestamps()
     })
   }

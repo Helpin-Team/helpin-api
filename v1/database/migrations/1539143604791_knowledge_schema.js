@@ -6,6 +6,9 @@ class KnowledgeSchema extends Schema {
   up () {
     this.create('knowledges', (table) => {
       table.increments()
+      table.string('name')
+      table.string('about')
+      table.integer('student_id').unsigned().references('id').inTable('students')
       table.timestamps()
     })
   }
