@@ -16,7 +16,8 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.resource('students', 'StudentController').apiOnly();
+Route.resource('students', 'StudentController').apiOnly()
+Route.resource('tutors', 'TutorsController').apiOnly()
 
 
 //index - listagem
