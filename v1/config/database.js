@@ -73,11 +73,11 @@ module.exports = {
   pg: {
     client: 'pg',
     connection: {
-      host: Env.get('DB_HOST', 'localhost'),
+      host: Env.get('DB_HOST', ''),
       port: Env.get('DB_PORT', '5432'),
-      user: Env.get('DB_USER', 'default'),
-      password: Env.get('DB_PASSWORD', 'secret'),
-      database: Env.get('DB_DATABASE', 'helpin_db')
+      user: Env.get('DB_USER', ''),
+      password: Env.get('DB_PASSWORD', ''),
+      database: Env.get('DB_DATABASE', '')
     },
     debug: Env.get('DB_DEBUG', false)
   }
