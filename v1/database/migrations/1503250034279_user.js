@@ -14,6 +14,8 @@ class UserSchema extends Schema {
       table.string('whatsapp', 155)
       table.string('skype', 255)
       table.string('hangouts', 255)
+      table.string('token')
+      table.timestamp('token_created_at')
       table.timestamps()
     })
   }
