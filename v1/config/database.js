@@ -16,7 +16,7 @@ module.exports = {
   | interacting with SQL databases.
   |
   */
-  connection: Env.get('DB_CONNECTION', 'pg'),
+  connection: Env.get('DB_CONNECTION', 'mysql'),
 
   /*
   |--------------------------------------------------------------------------
@@ -51,7 +51,7 @@ module.exports = {
   mysql: {
     client: 'mysql',
     connection: {
-      host: Env.get('DB_HOST', 'servidor.iclouds.com.br'),
+      host: Env.get('DB_HOST', 'localhost'),
       port: Env.get('DB_PORT', '3306'),
       user: Env.get('DB_USER', ''),
       password: Env.get('DB_PASSWORD', ''),
