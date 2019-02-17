@@ -33,6 +33,8 @@ class FileController {
         type: upload.type,
         subtype: upload.subtype
       })
+
+      return file
     } catch (err) {
       return response
         .status(err.status)
