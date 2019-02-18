@@ -16,6 +16,9 @@ Route.group(() => {
 
   Route.post('/files', 'FileController.store')
 
+  Route.resource('questions', 'QuestionController')
+    .apiOnly()
+
   Route.resource('projects', 'ProjectController')
     .apiOnly()
     .validator(new Map([[['projects.store'], ['Project']]]))

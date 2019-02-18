@@ -1,92 +1,49 @@
 'use strict'
 
-/** @typedef {import('@adonisjs/framework/src/Request')} Request */
-/** @typedef {import('@adonisjs/framework/src/Response')} Response */
-/** @typedef {import('@adonisjs/framework/src/View')} View */
+const Question = use('App/Models/Question')
 
-/**
- * Resourceful controller for interacting with questions
- */
 class QuestionController {
-  /**
-   * Show a list of all questions.
-   * GET questions
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async index ({ request, response, view }) {
+
+  async index () {
+    const questions = await Question.query()
+      .fetch()
+    return questions
   }
 
-  /**
-   * Render a form to be used for creating a new question.
-   * GET questions/create
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async create ({ request, response, view }) {
-  }
+  async store ({ request, auth }) {
+    const data = request.only([
+      'title',
+      'description',
+      'status'
+    ])
 
-  /**
-   * Create/save a new question.
-   * POST questions
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   */
-  async store ({ request, response }) {
-  }
+    const questions = await Question.create({ ...data, user_id: auth.user.id })
 
-  /**
-   * Display a single question.
-   * GET questions/:id
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async show ({ params, request, response, view }) {
+    return questions
   }
+  async show ({ params }) {
+    const question = await Question.findOrFail(params.id)
 
-  /**
-   * Render a form to update an existing question.
-   * GET questions/:id/edit
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async edit ({ params, request, response, view }) {
+    return question
   }
-
-  /**
-   * Update question details.
-   * PUT or PATCH questions/:id
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   */
   async update ({ params, request, response }) {
-  }
+    const question = await Question.findOrFail(params.id)
+    const data = request.only([
+      'title',
+      'description',
+      'status'
+    ])
 
-  /**
-   * Delete a question with id.
-   * DELETE questions/:id
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   */
-  async destroy ({ params, request, response }) {
+    question.merge(data)
+
+    await question.save()
+
+    return question
+  }
+  async destroy ({ params }) {
+    const question = await Question.findOrFail(params.id)
+
+    await question.delete()
   }
 }
 

@@ -8,7 +8,7 @@ class KnowledgeSchema extends Schema {
     this.create('knowledges', (table) => {
       table.increments()
       table.string('title').notNullable()
-      table.string('describe').notNullable()
+      table.string('description').notNullable()
       table.timestamps()
     })
   }

@@ -8,7 +8,7 @@ class EventSchema extends Schema {
     this.create('events', (table) => {
       table.increments()
       table.string('title').notNullable()
-      table.string('describe').notNullable()
+      table.string('description').notNullable()
       table
         .integer('user_id')
         .unsigned()
