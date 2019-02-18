@@ -3,15 +3,14 @@
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Model = use('Model')
 
-class Event extends Model {
-  entry () {
-    return this.hasMany('App/Models/Entry')
-  }
-
+class UserHasKnowledge extends Model {
   user () {
     return this.hasOne('App/Models/User')
   }
 
+  knowledge () {
+    return this.hasOne('App/Models/Knowledge')
+  }
 }
 
-module.exports = Event
+module.exports = UserHasKnowledge

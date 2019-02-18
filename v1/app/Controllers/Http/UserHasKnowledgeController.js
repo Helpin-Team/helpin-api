@@ -5,12 +5,12 @@
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
 /**
- * Resourceful controller for interacting with media
+ * Resourceful controller for interacting with userhasknowledges
  */
-class MediaController {
+class UserHasKnowledgeController {
   /**
-   * Show a list of all media.
-   * GET media
+   * Show a list of all userhasknowledges.
+   * GET userhasknowledges
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -21,8 +21,8 @@ class MediaController {
   }
 
   /**
-   * Render a form to be used for creating a new media.
-   * GET media/create
+   * Render a form to be used for creating a new userhasknowledge.
+   * GET userhasknowledges/create
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -33,8 +33,8 @@ class MediaController {
   }
 
   /**
-   * Create/save a new media.
-   * POST media
+   * Create/save a new userhasknowledge.
+   * POST userhasknowledges
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -44,8 +44,8 @@ class MediaController {
   }
 
   /**
-   * Display a single media.
-   * GET media/:id
+   * Display a single userhasknowledge.
+   * GET userhasknowledges/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -56,8 +56,8 @@ class MediaController {
   }
 
   /**
-   * Render a form to update an existing media.
-   * GET media/:id/edit
+   * Render a form to update an existing userhasknowledge.
+   * GET userhasknowledges/:id/edit
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -68,8 +68,8 @@ class MediaController {
   }
 
   /**
-   * Update media details.
-   * PUT or PATCH media/:id
+   * Update userhasknowledge details.
+   * PUT or PATCH userhasknowledges/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -79,8 +79,8 @@ class MediaController {
   }
 
   /**
-   * Delete a media with id.
-   * DELETE media/:id
+   * Delete a userhasknowledge with id.
+   * DELETE userhasknowledges/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -90,4 +90,4 @@ class MediaController {
   }
 }
 
-module.exports = MediaController
+module.exports = UserHasKnowledgeController

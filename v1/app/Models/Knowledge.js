@@ -4,6 +4,11 @@
 const Model = use('Model')
 
 class Knowledge extends Model {
+
+  userHasKnowledge () {
+    return this.hasMany('App/Models/UserHasKnowledge')
+  }
+
 }
 
 module.exports = Knowledge

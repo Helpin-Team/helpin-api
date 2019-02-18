@@ -3,11 +3,12 @@
 /** @type {import('@adonisjs/lucid/src/Schema')} */
 const Schema = use('Schema')
 
-class EntriesSchema extends Schema {
+class AnswerSchema extends Schema {
   up () {
-    this.create('entries', (table) => {
+    this.create('answers', (table) => {
       table.increments()
-      table.integer('status').notNullable()
+      table.timestamp('date').notNullable()
+      table.string('describe').notNullable()
       table
         .integer('user_id')
         .unsigned()
@@ -16,10 +17,10 @@ class EntriesSchema extends Schema {
         .onUpdate('CASCADE')
         .onDelete('SET NULL')
       table
-        .integer('event_id')
+        .integer('question_id')
         .unsigned()
         .references('id')
-        .inTable('events')
+        .inTable('questions')
         .onUpdate('CASCADE')
         .onDelete('SET NULL')
       table.timestamps()
@@ -27,8 +28,8 @@ class EntriesSchema extends Schema {
   }
 
   down () {
-    this.drop('entries')
+    this.drop('answers')
   }
 }
 
-module.exports = EntriesSchema
+module.exports = AnswerSchema

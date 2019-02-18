@@ -22,6 +22,26 @@ class User extends Model {
     return this.hasMany('App/Models/Token')
   }
 
+  entry () {
+    return this.hasMany('App/Models/Entry')
+  }
+
+  event () {
+    return this.hasMany('App/Models/Event')
+  }
+
+  questions () {
+    return this.hasMany('App/Models/Question')
+  }
+
+  answers () {
+    return this.hasMany('App/Models/Answer')
+  }
+
+  userHasKnowledges () {
+    return this.hasMany('App/Models/UserHasKnowledge')
+  }
+
   projects () {
     return this.hasMany('App/Models/Project')
   }

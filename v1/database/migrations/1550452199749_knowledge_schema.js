@@ -7,6 +7,8 @@ class KnowledgeSchema extends Schema {
   up () {
     this.create('knowledges', (table) => {
       table.increments()
+      table.string('title').notNullable()
+      table.string('describe').notNullable()
       table.timestamps()
     })
   }

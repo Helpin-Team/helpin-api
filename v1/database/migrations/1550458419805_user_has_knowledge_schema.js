@@ -3,11 +3,10 @@
 /** @type {import('@adonisjs/lucid/src/Schema')} */
 const Schema = use('Schema')
 
-class EntriesSchema extends Schema {
+class UserHasKnowledgeSchema extends Schema {
   up () {
-    this.create('entries', (table) => {
+    this.create('user_has_knowledges', (table) => {
       table.increments()
-      table.integer('status').notNullable()
       table
         .integer('user_id')
         .unsigned()
@@ -16,10 +15,10 @@ class EntriesSchema extends Schema {
         .onUpdate('CASCADE')
         .onDelete('SET NULL')
       table
-        .integer('event_id')
+        .integer('knowledge_id')
         .unsigned()
         .references('id')
-        .inTable('events')
+        .inTable('knowledges')
         .onUpdate('CASCADE')
         .onDelete('SET NULL')
       table.timestamps()
@@ -27,8 +26,8 @@ class EntriesSchema extends Schema {
   }
 
   down () {
-    this.drop('entries')
+    this.drop('user_has_knowledges')
   }
 }
 
-module.exports = EntriesSchema
+module.exports = UserHasKnowledgeSchema
