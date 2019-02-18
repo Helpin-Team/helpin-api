@@ -19,6 +19,9 @@ Route.group(() => {
   Route.resource('questions', 'QuestionController')
     .apiOnly()
 
+  Route.resource('questions.answers', 'AnswerController')
+    .apiOnly()
+
   Route.resource('projects', 'ProjectController')
     .apiOnly()
     .validator(new Map([[['projects.store'], ['Project']]]))

@@ -14,7 +14,7 @@ class QuestionController {
     const data = request.only([
       'title',
       'description',
-      'status'
+      'status',
     ])
 
     const questions = await Question.create({ ...data, user_id: auth.user.id })
