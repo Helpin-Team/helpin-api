@@ -18,6 +18,12 @@ class UserController {
 
     return user
   }
+
+  async show ({ auth }) {
+    const user = await User.findOrFail({ id: auth.user.id })
+
+    return user
+  }
 }
 
 module.exports = UserController
