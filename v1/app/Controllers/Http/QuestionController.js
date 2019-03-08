@@ -10,17 +10,19 @@ class QuestionController {
     return questions
   }
 
-  async store ({ request, auth }) {
+  async store ({ request }) {
     const data = request.only([
       'title',
       'description',
       'status',
+      'uid'
     ])
 
-    const questions = await Question.create({ ...data, user_id: auth.user.id })
+    const questions = await Question.create({ ...data })
 
     return questions
   }
+
   async show ({ params }) {
     const question = await Question.findOrFail(params.id)
 

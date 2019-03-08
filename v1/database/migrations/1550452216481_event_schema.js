@@ -9,13 +9,6 @@ class EventSchema extends Schema {
       table.increments()
       table.string('title').notNullable()
       table.string('description').notNullable()
-      table
-        .integer('user_id')
-        .unsigned()
-        .references('id')
-        .inTable('users')
-        .onUpdate('CASCADE')
-        .onDelete('SET NULL')
       table.timestamps()
     })
   }

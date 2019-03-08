@@ -9,10 +9,6 @@ class Entry extends Model {
     return this.hasOne('App/Models/Event')
   }
 
-  user () {
-    return this.hasOne('App/Models/User')
-  }
-
 }
 
 module.exports = Entry

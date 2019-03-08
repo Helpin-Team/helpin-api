@@ -10,13 +10,6 @@ class AnswerSchema extends Schema {
       table.timestamp('date').notNullable()
       table.string('description').notNullable()
       table
-        .integer('user_id')
-        .unsigned()
-        .references('id')
-        .inTable('users')
-        .onUpdate('CASCADE')
-        .onDelete('SET NULL')
-      table
         .integer('question_id')
         .unsigned()
         .references('id')

@@ -25,13 +25,6 @@ class FileSchema extends Schema {
         .inTable('questions')
         .onUpdate('CASCADE')
         .onDelete('SET NULL')
-      table
-        .integer('user_id')
-        .unsigned()
-        .references('id')
-        .inTable('users')
-        .onUpdate('CASCADE')
-        .onDelete('SET NULL')
       table.timestamps()
     })
   }

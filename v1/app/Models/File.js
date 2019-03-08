@@ -17,10 +17,6 @@ class File extends Model {
     return this.hasOne('App/Models/Answer')
   }
 
-  user () {
-    return this.hasOne('App/Models/User')
-  }
-
   question () {
     return this.hasOne('App/Models/Question')
   }

@@ -8,10 +8,6 @@ class Event extends Model {
     return this.hasMany('App/Models/Entry')
   }
 
-  user () {
-    return this.hasOne('App/Models/User')
-  }
-
 }
 
 module.exports = Event

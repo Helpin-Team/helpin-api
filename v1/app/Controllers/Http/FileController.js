@@ -31,7 +31,10 @@ class FileController {
         file: fileName,
         name: upload.clientName,
         type: upload.type,
-        subtype: upload.subtype
+        subtype: upload.subtype,
+        question_id: upload.question_id,
+        answer_id: upload.answer_id,
+        user_id: upload.user_id
       })
 
       return file

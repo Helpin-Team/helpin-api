@@ -8,10 +8,6 @@ class Question extends Model {
     return this.hasMany('App/Models/Answer')
   }
 
-  user () {
-    return this.belongsTo('App/Models/User')
-  }
-
   file () {
     return this.hasMany('App/Models/File')
   }
