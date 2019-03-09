@@ -6,6 +6,7 @@ class QuestionController {
 
   async index () {
     const questions = await Question.query()
+      .with('answers')
       .fetch()
     return questions
   }

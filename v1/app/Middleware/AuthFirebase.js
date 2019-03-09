@@ -3,15 +3,8 @@
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 const admin = use('firebase-admin');
+const config = require('../../config/firebase')
 
-const config = {
-  apiKey: "AIzaSyAJRLdWpa0ioh8cs95OIFL_f0t8LMzZAAY",
-  authDomain: "helpin-23831.firebaseapp.com",
-  databaseURL: "https://helpin-23831.firebaseio.com",
-  projectId: "helpin-23831",
-  storageBucket: "helpin-23831.appspot.com",
-  messagingSenderId: "581193261865"
-}
 
 admin.initializeApp(config);
 

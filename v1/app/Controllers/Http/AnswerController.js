@@ -13,10 +13,9 @@ class AnswerController {
   async store ({ request, params }) {
     const data = request.only([
       'description',
-      'user_id'
+      'uid'
     ])
-
-    const answer = await Answer.create({ ...data, question_id: params.question_id })
+    const answer = await Answer.create({ ...data, question_id: params.questions_id })
 
     return answer
   }

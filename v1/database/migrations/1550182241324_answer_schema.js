@@ -9,6 +9,7 @@ class AnswerSchema extends Schema {
       table.increments()
       table.timestamp('date').notNullable()
       table.string('description').notNullable()
+      table.string('uid').notNullable()
       table
         .integer('question_id')
         .unsigned()
