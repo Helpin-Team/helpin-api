@@ -3,9 +3,9 @@
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 const admin = use('firebase-admin');
-const config = require('../../config/firebase')
+const Config = use('Config')
 
-
+const config = Config.get('firebase');
 admin.initializeApp(config);
 
 class AuthFirebase {
@@ -17,22 +17,20 @@ class AuthFirebase {
 
   async handle ({ request, response }, next) {
     // call next to advance the request
-    const idToken = request.header('idToken')
 
-
-
-    admin.auth().verifyIdToken(idToken)
+    const token = request.header('token')
+    admin.auth().verifyIdToken(token)
       .then(function(decodedToken) {
 
         var uid = decodedToken.uid;
+
+        User
+
         return uid;
 
       }).catch(function(error) {
-
-        return response.status(401).send()
+        return response.status(401).send(error)
       })
-
-
 
     await next()
   }
